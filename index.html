@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 	<head>
-		<title>Strata by HTML5 UP</title>
+		<title>The World is Here</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/angular.min.js"></script>
-		<script src="js/angular-resource.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
 		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/app.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -20,64 +20,34 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 
-	<body id="top">
+	<body id="top" ng-controller="myController">
 
 			<header id="header">
-				<h1><strong>Running the World</strong>, <br />Showing that is possible to travel <br />around the world through <br />real experiences.
+				<h1><strong>#DogHero</strong>, <br />Dogs also want to travel <br />around the world.
 				</h1>
 			</header>
 
 			<div id="main">
 
 				<section id="one">
-					<form method="post" action="#">
-						<div class="row uniform 50%">
-							<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="#YourRunBeginsHere" /></div>
-							<ul class="actions">
-								<li><a href="#" class="button special small">Run</a></li>
-							</ul>
-						</div>
-
-					</form>
-
+					<div class="row uniform 50%">
+						<div class="9u 12u$(small)"><input type="text" name="name" id="name" placeholder="#DogHero" ng-model="searchTerm"/></div>
+						<ul class="actions">
+							<li><a href="#" class="button special small" ng-click="search()">DogSearch</a></li>
+						</ul>
+					</div>
 				</section>
 
 				<section id="two">
-					<h2>Inspiring Results</h2>
+					<h2>DogResults</h2>
 					<div class="row">
-						<article class="6u 12u$(xsmall) work-item">
-							<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-							<h3>Magna sed consequat tempus</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-						</article>
-						<article class="6u$ 12u$(xsmall) work-item">
-							<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-							<h3>Ultricies lacinia interdum</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-						</article>
-						<article class="6u 12u$(xsmall) work-item">
-							<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-							<h3>Tortor metus commodo</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-						</article>
-						<article class="6u$ 12u$(xsmall) work-item">
-							<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-							<h3>Quam neque phasellus</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-						</article>
-						<article class="6u 12u$(xsmall) work-item">
-							<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-							<h3>Nunc enim commodo aliquet</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-						</article>
-						<article class="6u$ 12u$(xsmall) work-item">
-							<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-							<h3>Risus ornare lacinia</h3>
-							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+						<article class="6u 12u$(xsmall) work-item" ng-repeat="tweet in twitterResult.tweets">
+							<img  class="image fit thumb" ng-src="{{getPhotoUrl(flickrResult.photo[$index])}}" alt="" />
+							<h3>{{tweet}}</h3>
 						</article>
 					</div>
-				</section>					
-					
+				</section>
+
 			</div>
 
 			<footer id="footer">

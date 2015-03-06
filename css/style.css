@@ -911,6 +911,7 @@
 
 	.work-item {
 		margin: 0 0 2em 0;
+		min-height: 460px;
 	}
 
 		.work-item .image {
@@ -960,6 +961,7 @@
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
+			margin-top: -120px;
 		}
 
 		#header .image.avatar {
